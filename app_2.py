@@ -1,10 +1,8 @@
-import google.generativeai as genai
+from google import genai
 from memory_system import load_memory, save_memory, extract_memory, build_memory_context
 
 # 🔑 put your Gemini API key here
-genai.configure(api_key="AIzaSyD-skuHMbl2xmIvQVrKyoXbOIwUfkuzQo4")
-
-model = genai.GenerativeModel("gemini-pro")
+client = genai.Client(api_key="Your API_KEY_HERE")
 
 print("🧠 Infinity Memory AI Started (type 'exit' to stop)\n")
 
@@ -33,9 +31,11 @@ while True:
     Reply smartly using memory if needed.
     """
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-1.5-flash", contents=prompt 
+    )
     print("Bot:", response.text)
 
-    # show memory used (impress judges)
+    # show memory used (For Hackathon judges)
     print("\nActive Memory:", memory)
     print("--------------------------------------------------")
