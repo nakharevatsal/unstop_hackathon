@@ -3,7 +3,6 @@ from memory_system import load_memory, save_memory, extract_memory, build_memory
 
 # 🔑 put your Gemini API key here
 client = genai.Client(api_key="Your API_KEY_HERE")
-
 print("🧠 Infinity Memory AI Started (type 'exit' to stop)\n")
 
 memory = load_memory()
