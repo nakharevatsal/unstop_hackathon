@@ -25,10 +25,6 @@ api_key = st.sidebar.text_input("Gemini API Key", type="password")
 if api_key:
     client = genai.Client(api_key=api_key)
     
-    for m in client.models.list():
-        if 'generateContent' in m.supported_actions:
-            print(m.name)
-
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
