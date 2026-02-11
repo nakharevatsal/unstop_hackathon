@@ -17,13 +17,21 @@ def save_memory(memory):
 def extract_memory(user_msg, memory):
     msg = user_msg.lower()
 
-    if "my name is" in msg:
+    if "my name is" in msg or "i am" in msg or "i'm" in msg:
         name = user_msg.lower().split("my name is")[-1].strip()
         memory["name"] = name
 
     if "i like" in msg:
         like = user_msg.split("like")[-1].strip()
         memory["preference"] = like
+
+    if "my favorite movie is" in msg or "i like to watch" in msg:
+        time = user_msg.split("is")[-1].strip()
+        memory["liked_movie"] = movie
+
+    if "i like to eat" in msg:
+        time = user_msg.split("eat")[-1].strip()
+        memory["food"] = food
 
     if "call me after" in msg:
         time = user_msg.split("after")[-1].strip()
@@ -32,6 +40,10 @@ def extract_memory(user_msg, memory):
     if "my exam is" in msg:
         exam = user_msg.lower().split("my exam is")[-1].strip()
         memory["exam"] = exam
+        
+    if "i like to listen to" in msg or "i listen to":
+        exam = user_msg.lower().split("i like to listen to")[-1].strip()
+        memory["song"] = song
 
     return memory
 
@@ -46,4 +58,10 @@ def build_memory_context(memory):
         context += f"Call user after {memory['call_time']}. "
     if "exam" in memory:
         context += f"User exam is {memory['exam']}. "
+    if "liked_movie" in memory:
+        context += f"User likes {memory['liked_movie']}. "
+    if "food" in memory:
+        context += f"User likes {memory['food']}. "
+    if "song" in memory:
+        context += f"User likes {memory['song']}. "
     return context
