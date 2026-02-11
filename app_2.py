@@ -2,7 +2,7 @@ from google import genai
 from memory_system import load_memory, save_memory, extract_memory, build_memory_context
 
 # 🔑 put your Gemini API key here
-client = genai.Client(api_key="Your API_KEY_HERE")
+client = genai.Client(api_key="API_key_here")
 print("🧠 Infinity Memory AI Started (type 'exit' to stop)\n")
 
 memory = load_memory()
@@ -31,7 +31,7 @@ while True:
     """
 
     response = client.models.generate_content(
-        model="gemini-1.5-flash", contents=prompt 
+        model="gemini-2.5-flash", contents=prompt 
     )
     print("Bot:", response.text)
 
