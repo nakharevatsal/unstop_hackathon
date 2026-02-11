@@ -25,12 +25,22 @@ def extract_memory(user_msg, memory):
         like = user_msg.split("like")[-1].strip()
         memory["preference"] = like
 
+        if "preferences" not in memory:
+            memory["preferences"] = []
+
+        # normalize text (avoid duplicates like AI vs ai)
+        like = like.capitalize()
+
+        # add without overwriting
+        if like not in memory["preferences"]:
+            memory["preferences"].append(like)
+
     if "my favorite movie is" in msg or "i like to watch" in msg:
-        time = user_msg.split("is")[-1].strip()
+        movie = user_msg.split("is")[-1].strip()
         memory["liked_movie"] = movie
 
-    if "i like to eat" in msg:
-        time = user_msg.split("eat")[-1].strip()
+    if "eat" in msg:
+        food = user_msg.split("eat")[-1].strip()
         memory["food"] = food
 
     if "call me after" in msg:
@@ -41,16 +51,16 @@ def extract_memory(user_msg, memory):
         exam = user_msg.lower().split("my exam is")[-1].strip()
         memory["exam"] = exam
         
-    if "i like to listen to" in msg or "i listen to":
-        exam = user_msg.lower().split("i like to listen to")[-1].strip()
+    if "i listen to" in msg or "i listen to" in msg:
+        song = user_msg.split("to")[-1].strip()
         memory["song"] = song
 
     if "my birthday is on" in msg:
-        exam = user_msg.lower().split("is on")[-1].strip()
+        birthday = user_msg.lower().split("is on")[-1].strip()
         memory["birthday"] = birthday
         
     if "remind me of" in msg:
-        exam = user_msg.lower().split("of")[-1].strip()
+        event = user_msg.lower().split("of")[-1].strip()
         memory["event"] = event
 
     return memory
@@ -60,8 +70,9 @@ def build_memory_context(memory):
     context = ""
     if "name" in memory:
         context += f"User name is {memory['name']}. "
-    if "preference" in memory:
-        context += f"User likes {memory['preference']}. "
+    if "preference" in memory and isinstance(memory["preferences"], list):
+        likes = ", ".join(memory["preference"])
+        context += f"User likes {likes}. "
     if "call_time" in memory:
         context += f"Call user after {memory['call_time']}. "
     if "exam" in memory:

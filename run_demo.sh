@@ -17,7 +17,7 @@ echo ""
 python - <<EOF
 
 import json
-import google.generativeai as genai
+import google as genai
 
 # 🔑 Gemini API key (already added in app normally)
 genai.configure(api_key="YOUR_API_KEY")

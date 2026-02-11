@@ -1,1 +1,8 @@
-{}
+{
+    "preference": "to play sports",
+    "preferences": [
+        "To play sports",
+        "To eat fruits"
+    ],
+    "food": "fruits"
+}
