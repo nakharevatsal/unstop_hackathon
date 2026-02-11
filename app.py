@@ -1,7 +1,7 @@
 from google import genai
 from memory_system import load_memory, save_memory, extract_memory, build_memory_context
 
-# 🔑 put your Gemini API key here
+# 🔑 put your Gemini API key here!!!
 client = genai.Client(api_key="API_key_here")
 print("🧠 Infinity Memory AI Started (type 'exit' to stop)\n")
 
@@ -19,7 +19,7 @@ while True:
 
     # build memory context
     memory_context = build_memory_context(memory)
-
+    #AI is getting prompted here
     prompt = f"""
     You are a smart AI assistant with memory.
 
