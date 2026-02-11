@@ -18,7 +18,7 @@ def extract_memory(user_msg, memory):
     msg = user_msg.lower()
 
     if "my name is" in msg:
-        name = user_msg.split("is")[-1].strip()
+        name = user_msg.lower().split("my name is")[-1].strip()
         memory["name"] = name
 
     if "i like" in msg:
@@ -30,7 +30,7 @@ def extract_memory(user_msg, memory):
         memory["call_time"] = time
 
     if "my exam is" in msg:
-        exam = user_msg.split("is")[-1].strip()
+        exam = user_msg.lower().split("my exam is")[-1].strip()
         memory["exam"] = exam
 
     return memory
