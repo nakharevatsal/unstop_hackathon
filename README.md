@@ -54,5 +54,10 @@ So it becomes a *personal intelligent assistant*.
  
   7. Run the file (python app.py)
 
+ For demo:
+ -Windows:
+    run_demo.bat
+ -Linux/Mac:
+    run_demo.bash
 
 
