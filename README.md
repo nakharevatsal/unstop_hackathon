@@ -1,4 +1,4 @@
-# unstop_hackathon
+# Unstop_Hackathon
 
 An AI assistant that remembers user conversations using memory system + Gemini API.
 
@@ -39,7 +39,7 @@ So it becomes a *personal intelligent assistant*.
 
 - 1. Install Python from https://www.python.org/downloads/ --version 3.14.3
  
-  2. Clone project:
+  2. Clone project: git clone https://github.com/nakharevatsal/unstop_hackathon.git
  
   3. Install requirnments:
       - open terminal is project folder
