@@ -57,3 +57,5 @@ So it becomes a *personal intelligent assistant*.
     b) if you change directory to unstop_hackathon in terminal and then type "python app.py" the JSON file provided in the folder will be used
 
 
+ DEMO: run_demo_linux : for linux/mac users
+       run_demo_windows : for windows users
