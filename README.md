@@ -53,11 +53,7 @@ So it becomes a *personal intelligent assistant*.
   6. Save file
  
   7. Run the file (python app.py)
-
- For demo:
- -Windows:
-    run_demo.bat
- -Linux/Mac:
-    run_demo.bash
+    a) if you run from inbuilt button of visual studio code a seprate JSON file in your main folder will be created and,
+    b) if you change directory to unstop_hackathon in terminal and then type "python app.py" the JSON file provided in the folder will be used
 
 
