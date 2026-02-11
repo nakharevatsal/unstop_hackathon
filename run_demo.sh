@@ -34,10 +34,10 @@ except:
     memory={}
 
 # ---- Demo conversation ----
-print("👩 User: My name is Anushka")
-memory["name"]="Anushka"
+print("👩 User: My name is Alex")
+memory["name"]="Alex"
 
-print("🤖 AI: Nice to meet you Anushka\n")
+print("🤖 AI: Nice to meet you Alex\n")
 
 print("👩 User: I love Artificial Intelligence")
 memory["interest"]="Artificial Intelligence"
