@@ -45,6 +45,14 @@ def extract_memory(user_msg, memory):
         exam = user_msg.lower().split("i like to listen to")[-1].strip()
         memory["song"] = song
 
+    if "my birthday is on" in msg:
+        exam = user_msg.lower().split("is on")[-1].strip()
+        memory["birthday"] = birthday
+        
+    if "remind me of" in msg:
+        exam = user_msg.lower().split("of")[-1].strip()
+        memory["event"] = event
+
     return memory
 
 # create smart reply using memory
@@ -64,4 +72,8 @@ def build_memory_context(memory):
         context += f"User likes {memory['food']}. "
     if "song" in memory:
         context += f"User likes {memory['song']}. "
+    if "birthday" in memory:
+        context += f"User's birthday is on {memory['birthday']}. "
+    if "event" in memory:
+        context += f"User has a even {memory['event']}"
     return context
