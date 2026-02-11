@@ -70,9 +70,14 @@ def build_memory_context(memory):
     context = ""
     if "name" in memory:
         context += f"User name is {memory['name']}. "
-    if "preference" in memory and isinstance(memory["preferences"], list):
-        likes = ", ".join(memory["preference"])
-        context += f"User likes {likes}. "
+            
+            # -------- USER PREFERENCES --------
+    if "preferences" in memory and isinstance(memory["preferences"], list):
+
+        if len(memory["preferences"]) > 0:
+            all_prefs = ", ".join(memory["preferences"])
+            context += f"The user has the following preferences: {all_prefs}. "
+
     if "call_time" in memory:
         context += f"Call user after {memory['call_time']}. "
     if "exam" in memory:
